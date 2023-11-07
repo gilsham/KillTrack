@@ -623,6 +623,17 @@ function KT:GetMob(id)
     return false, nil
 end
 
+function KT:GetMobTotal()
+    local total = 0
+    for k,v in pairs(self.Global.MOBS) do
+        assert(type(v) == "table", "Unexpected mob entry type in db: " .. type(v) .. ". Expected table")
+        if self.CharGlobal.MOBS[k] and type(self.CharGlobal.MOBS[k]) == "table" then
+            total = total + self.CharGlobal.MOBS[k].Kills
+        end
+    end
+    return total
+end
+
 function KT:GetSortedMobTable(mode, filter, caseSensitive)
     if not tonumber(mode) then mode = self.Sort.Desc end
     if mode < 0 or mode > 7 then mode = self.Sort.Desc end
