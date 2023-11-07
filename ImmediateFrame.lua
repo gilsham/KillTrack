@@ -110,7 +110,9 @@ end
 function I:Show()
     if not frame then SetupFrame() end
     self.Kills = 0
+    self.TotalKills = KT:GetMobTotal()
     frame.killCount:SetText(self.Kills)
+    frame.killTotalCount:SetText(self.TotalKills)
     frame:Show()
     self.Active = true
 end
@@ -119,6 +121,7 @@ function I:Hide()
     frame:Hide()
     self.Kills = 0
     frame.killCount:SetText(self.Kills)
+    frame.killTotalCount:SetText(self.TotalKills)
     self.Active = false
 end
 
@@ -132,5 +135,7 @@ end
 
 function I:AddKill()
     self.Kills = self.Kills + 1
+    self.TotalKills = self.TotalKills + 1
     frame.killCount:SetText(tostring(self.Kills))
+    frame.killTotalCount:SetText(tostring(self.TotalKills))
 end
