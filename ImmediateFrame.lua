@@ -41,7 +41,7 @@ local function SetupFrame()
         frame:SetPoint("CENTER")
     end
     frame:SetWidth(240)
-    frame:SetHeight(30)
+    frame:SetHeight(60)
 
     local bd = {
         bgFile = "Interface\\DialogFrame\\UI-DialogBox-Background",
@@ -69,18 +69,33 @@ local function SetupFrame()
         G.POSITION.Y = y
     end)
 
+    frame.killTotalLabel = frame:CreateFontString(nil, "OVERLAY", nil)
+    frame.killTotalLabel:SetFont("Fonts\\FRIZQT__.TTF", 16, nil)
+    frame.killTotalLabel:SetWidth(150)
+    --frame.killTotalLabel:SetHeight(24)
+    frame.killTotalLabel:SetPoint("LEFT", frame, "LEFT", -24, 10)
+    frame.killTotalLabel:SetText("Total kills:")
+
+    frame.killTotalCount = frame:CreateFontString(nil, "OVERLAY", nil)
+    frame.killTotalCount:SetFont("Fonts\\FRIZQT__.TTF", 16, nil)
+    frame.killTotalCount:SetWidth(100)
+    --frame.killTotalCount:SetHeight(24)
+    frame.killTotalCount:SetPoint("RIGHT", frame, "RIGHT", -68, 10)
+    frame.killTotalCount:SetJustifyH("RIGHT")
+    frame.killTotalCount:SetText("0")
+
     frame.killLabel = frame:CreateFontString(nil, "OVERLAY", nil)
     frame.killLabel:SetFont("Fonts\\FRIZQT__.TTF", 16, nil)
-    frame.killLabel:SetWidth(100)
+    frame.killLabel:SetWidth(150)
     --frame.killLabel:SetHeight(24)
-    frame.killLabel:SetPoint("LEFT", frame, "LEFT", 2, 0)
-    frame.killLabel:SetText("Kills so far:")
+    frame.killLabel:SetPoint("LEFT", frame, "LEFT", 2, -10)
+    frame.killLabel:SetText("Kills this session:")
 
     frame.killCount = frame:CreateFontString(nil, "OVERLAY", nil)
     frame.killCount:SetFont("Fonts\\FRIZQT__.TTF", 16, nil)
     frame.killCount:SetWidth(100)
     --frame.killCount:SetHeight(24)
-    frame.killCount:SetPoint("RIGHT", frame, "RIGHT", -68, 0)
+    frame.killCount:SetPoint("RIGHT", frame, "RIGHT", -68, -10)
     frame.killCount:SetJustifyH("RIGHT")
     frame.killCount:SetText("0")
 
