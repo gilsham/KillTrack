@@ -111,6 +111,7 @@ function I:Show()
     if not frame then SetupFrame() end
     self.Kills = 0
     self.TotalKills = KT:GetMobTotal()
+    _G["KILLTRACK_CHAR_TOTAL"] = self.TotalKills
     frame.killCount:SetText(self.Kills)
     frame.killTotalCount:SetText(self.TotalKills)
     frame:Show()
@@ -136,6 +137,7 @@ end
 function I:AddKill()
     self.Kills = self.Kills + 1
     self.TotalKills = self.TotalKills + 1
+    _G["KILLTRACK_CHAR_TOTAL"] = self.TotalKills
     frame.killCount:SetText(tostring(self.Kills))
     frame.killTotalCount:SetText(tostring(self.TotalKills))
 end
